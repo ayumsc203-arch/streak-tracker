@@ -16,7 +16,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 24
 
       - name: Run streak script
         run: node scripts/streak.js
@@ -26,5 +26,6 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add streak.json
-          git commit -m "🔥 update streak" || exit 0
-          git push
+
+          git commit -m "🔥 update streak" || echo "No changes to commit"
+          git push || echo "Nothing to push"
